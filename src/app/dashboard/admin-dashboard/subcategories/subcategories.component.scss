@@ -1,0 +1,115 @@
+/* Subcategory List */
+.subcategory-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust the gap between subcategories */
+}
+
+.subcategory-card {
+  flex: 0 0 calc(33.33% - 20px); /* Adjust the width of each subcategory card */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.subcategory-card:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.subcategory-card .card-img-top {
+  height: 150px; /* Adjust image height as needed */
+  object-fit: cover; /* Maintain aspect ratio and crop if necessary */
+}
+
+.subcategory-card .card-body {
+  padding: 1rem;
+}
+
+.subcategory-card .card-title {
+  margin-bottom: 0.5rem;
+}
+
+/* Product Display */
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.product-card:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.product-card .card-img-top {
+  height: 200px; /* Adjust image height as needed */
+  object-fit: cover; /* Maintain aspect ratio and crop if necessary */
+}
+
+.product-card .card-body {
+  padding: 1rem;
+}
+
+.product-card .card-title {
+  margin-bottom: 0.5rem;
+}
+
+/* Add Product Form */
+.add-product-form {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 2rem;
+}
+
+.add-product-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.add-product-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.add-product-form button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-product-form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.add-product-form input[type="text"],
+.add-product-form input[type="number"],
+.add-product-form textarea {
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.add-product-form input[type="text"]:focus,
+.add-product-form input[type="number"]:focus,
+.add-product-form textarea:focus {
+  border-color: #80bdff;
+  outline: 0;
+  
+}

@@ -1,0 +1,63 @@
+/* home.component.scss */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+   
+}
+
+.content {
+    text-align: center;
+    color: #333;
+    /* Dark text color */
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #007bff;
+    /* Blue heading color */
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    margin: 0 10px;
+    font-size: 1.1rem;
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff9800;
+    /* Orange hover color */
+}
+
+button.primary {
+    background-color: #4caf50;
+    /* Green button color */
+    color: #fff;
+    /* White text color */
+}
+
+button.accent {
+    background-color: #ff4081;
+    /* Pink button color */
+    color: #fff;
+    /* White text color */
+}

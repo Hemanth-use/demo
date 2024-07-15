@@ -1,0 +1,116 @@
+<div *ngIf="products.length > 0; else noProducts">
+    <h2>Products</h2>
+    <div class="product-grid">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let product of products">
+          <div class="card mb-3">
+            <img [src]="product.imageUrl" class="card-img-top" alt="Product Image">
+            <div class="card-body">
+              <p class="card-text"><strong>Name:</strong> {{ product.name }}</p>
+              <p class="card-text"><strong>Description:</strong> {{ product.description }}</p>
+              <p class="card-text"><strong>Price:</strong> {{ product.price | currency }}</p>
+              <p class="card-text"><strong>Stock:</strong> {{ product.stock }}</p>
+              <p class="card-text"><strong>Brand:</strong> {{ product.brand }}</p>
+              <p class="card-text"><strong>Model:</strong> {{ product.model }}</p>
+              <p class="card-text"><strong>Size:</strong> {{ product.size }}</p>
+              <p class="card-text"><strong>Rating:</strong> {{ product.rating }}</p>
+              <button class="btn btn-primary" (click)="viewProduct(product.id)">View Product</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button mat-raised-button color="primary" (click)="addProduct()">Add New Product</button>
+  </div>
+  <ng-template #noProducts>
+    <p>No products found for this subcategory.</p>
+  </ng-template>
+  
+  <!-- Add Product Form -->
+  <div *ngIf="showAddProductForm">
+    <h3>Add New Product</h3>
+    <form [formGroup]="newProductForm" (ngSubmit)="submitNewProduct()">
+      <mat-form-field>
+        <mat-label>Product Name</mat-label>
+        <input matInput formControlName="name" />
+        <mat-error *ngIf="newProductForm.get('name')?.invalid && newProductForm.get('name')?.touched">
+          Product Name is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+        <mat-error *ngIf="newProductForm.get('description')?.invalid && newProductForm.get('description')?.touched">
+          Description is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Price</mat-label>
+        <input matInput formControlName="price" type="number" />
+        <mat-error *ngIf="newProductForm.get('price')?.invalid && newProductForm.get('price')?.touched">
+          Price is required and must be a positive number.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Image URL</mat-label>
+        <input matInput formControlName="imageUrl" />
+        <mat-error *ngIf="newProductForm.get('imageUrl')?.invalid && newProductForm.get('imageUrl')?.touched">
+          Image URL is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Stock</mat-label>
+        <input matInput formControlName="stock" type="number" />
+        <mat-error *ngIf="newProductForm.get('stock')?.invalid && newProductForm.get('stock')?.touched">
+          Stock is required and must be a non-negative number.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Brand</mat-label>
+        <input matInput formControlName="brand" />
+        <mat-error *ngIf="newProductForm.get('brand')?.invalid && newProductForm.get('brand')?.touched">
+          Brand is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Model</mat-label>
+        <input matInput formControlName="model" />
+        <mat-error *ngIf="newProductForm.get('model')?.invalid && newProductForm.get('model')?.touched">
+          Model is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Size</mat-label>
+        <input matInput formControlName="size" />
+        <mat-error *ngIf="newProductForm.get('size')?.invalid && newProductForm.get('size')?.touched">
+          Size is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Rating</mat-label>
+        <input matInput formControlName="rating" type="number" min="0" max="5" />
+        <mat-error *ngIf="newProductForm.get('rating')?.invalid && newProductForm.get('rating')?.touched">
+          Rating is required and must be between 0 and 5.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Subcategory ID</mat-label>
+        <input matInput formControlName="subcategoryId" [value]="subcategoryId" readonly />
+        <mat-error *ngIf="newProductForm.get('subcategoryId')?.invalid && newProductForm.get('subcategoryId')?.touched">
+          Subcategory ID is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </form>
+  </div>
+  

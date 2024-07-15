@@ -1,0 +1,35 @@
+<div class="table-responsive">
+    <h1><b><i style="color: rgb(93, 106, 223); display: flex;">Order List</i></b></h1>
+    <table class="table table-bordered table-hover table-info">
+        <thead style="color: darkmagenta;">
+            <tr>
+                <th>Id</th>
+                <th>Order Number</th>
+                <th>Order Date</th>
+                <th>Payment Method</th>
+                <th>Shipping Address</th>
+                <th>Shipping Fee</th>
+                <th>Tax</th>
+                <th>Total Price</th>
+                <th>Status</th>
+                <th>UserId</th>
+                <!-- <th>Fields</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orders">
+                <td>{{ order.id }}</td>
+                <td>{{ order.orderNumber }}</td>
+                <td>{{ order.orderDate }}</td>
+                <td>{{ order.PaymentMethod }}</td>
+                <td>{{ order.shippingAddress }}</td>
+                <td>{{ order.shippingFee }}</td>
+                <td>{{ order.tax }}</td>
+                <td>{{ order.totalPrice }}</td>
+                <td>{{ order.status }}</td>
+                <td>{{ order.userId }}</td>
+                <!-- <td>{{ order.fields }}</td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>

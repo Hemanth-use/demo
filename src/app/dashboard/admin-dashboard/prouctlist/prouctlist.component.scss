@@ -1,0 +1,64 @@
+/* Add custom CSS for product list and forms */
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  border-radius: 10px 10px 0 0;
+  object-fit: cover;
+  height: 200px; /* Adjust the height of the image */
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+/* Style for forms */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Add New Product form styling */
+.add-product-form {
+  max-width: 500px;
+  margin: 20px auto; /* Center the form with some margin */
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.add-product-form h5 {
+  margin-bottom: 20px;
+}
+
+.add-product-form form .form-group {
+  margin-bottom: 20px;
+}
+
+/* Edit Product form styling */
+.edit-product-form {
+  max-width: 500px;
+  margin: 20px auto; /* Center the form with some margin */
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+
+
+
+
+.edit-product-form h5 {
+  margin-bottom: 20px;
+}
+
+.edit-product-form form .form-group {
+  margin-bottom: 20px;
+}

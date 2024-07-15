@@ -1,0 +1,20 @@
+<div class="login-container">
+    <h2 style="position: relative; text-align: center; color: #2196f3;">Login</h2>
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" placeholder="Enter your email" formControlName="usernameOrEmail" required>
+            <mat-error
+                *ngIf="loginForm.get('usernameOrEmail')?.errors?.['email'] && !loginForm.get('usernameOrEmail')?.errors?.['required']">
+                Please enter a valid email
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('usernameOrEmail')?.errors?.['required']">Email is required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" placeholder="Enter your password" formControlName="password" required>
+            <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Login</button>
+    </form>
+</div>

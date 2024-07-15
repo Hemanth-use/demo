@@ -1,0 +1,95 @@
+
+<div class="subcategory-list">
+  <div *ngFor="let subcategory of subcategories" class="subcategory-card">
+    <div class="card-body">
+      <h6 class="subcategory-name mb-1">{{ subcategory.name }}</h6>
+      <p class="subcategory-description mb-0">{{ subcategory.description }}</p>
+      <div class="subcategory-actions">
+        <button (click)="viewSubcategory(subcategory)">
+          View {{ subcategory.name }}
+        </button>        
+        <button mat-icon-button color="warn" (click)="deleteSubcategory(subcategory.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="editSubcategory(subcategory)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="selectedSubcategory">
+  <h3>Products for {{ selectedSubcategory.name }}</h3>
+  <div class="product-grid">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let product of selectedSubcategoryProducts">
+        <div class="card mb-3">
+          <img [src]="product.imageUrl" class="card-img-top" alt="Product Image">
+          <div class="card-body">
+            <p class="card-text"><strong>Name:</strong> {{ product.name }}</p>
+            <p class="card-text"><strong>Description:</strong> {{ product.description }}</p>
+            <p class="card-text"><strong>Price:</strong> {{ product.price | currency }}</p>
+            <p class="card-text"><strong>Stock:</strong> {{ product.stock }}</p>
+            <p class="card-text"><strong>Brand:</strong> {{ product.brand }}</p>
+            <p class="card-text"><strong>Model:</strong> {{ product.model }}</p>
+            <p class="card-text"><strong>Size:</strong> {{ product.size }}</p>
+            <p class="card-text"><strong>Rating:</strong> {{ product.rating }}</p>
+            <p class="card-text"><strong>Sub Category ID:</strong> {{ product.subcategoryId }}</p>
+            <p class="card-text"><strong>Image URL:</strong> {{ product.imageUrl }}</p>
+            <button class="btn btn-primary mr-2" (click)="editProduct(product)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noProducts>
+    <p>No products found for this subcategory.</p>
+  </ng-template>
+  <button mat-raised-button color="primary" (click)="showAddProductForm = true; selectedSubcategory && setSubcategoryId(selectedSubcategory.id)">
+    Add New Product
+  </button>
+</div>
+
+
+<div *ngIf="showEditForm">
+  <div class="edit-subcategory-form">
+    <h3>Edit Subcategory</h3>
+    <form [formGroup]="editSubcategoryForm" (submit)="submitEditedSubcategory()">
+      <div class="form-group">
+        <label for="editSubcategoryName">Name:</label>
+        <input type="text" class="form-control" id="editSubcategoryName" formControlName="name" required>
+      </div>
+      <div class="form-group">
+        <label for="editSubcategoryDescription">Description:</label>
+        <textarea class="form-control" id="editSubcategoryDescription" formControlName="description" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelEditing()">Cancel</button>
+    </form>
+  </div>
+</div>
+
+<div>
+  <button mat-raised-button color="primary" (click)="showAddSubcategoryForm = true" style="margin-bottom: 12px;">
+    Add New Subcategory
+  </button>
+  <form *ngIf="showAddSubcategoryForm" [formGroup]="newSubcategoryForm" (submit)="submitNewSubcategory()">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name">
+      <div *ngIf="newSubcategoryForm.controls['name'].invalid && newSubcategoryForm.controls['name'].touched">
+        Name is required.
+      </div>
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description"></textarea>
+      <div *ngIf="newSubcategoryForm.controls['description'].invalid && newSubcategoryForm.controls['description'].touched">
+        Description is required.
+      </div>
+    </div>
+    <button type="submit" [disabled]="newSubcategoryForm.invalid">Submit</button>
+  </form>
+</div>

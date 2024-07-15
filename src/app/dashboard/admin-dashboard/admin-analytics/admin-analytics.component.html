@@ -1,0 +1,38 @@
+<div class="container">
+    <h1>Admin Analytics</h1>
+    
+    <form (submit)="addAnalyticsField()" class="form">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" name="name" [(ngModel)]="newAnalyticsField.name" required>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input matInput type="text" name="description" [(ngModel)]="newAnalyticsField.description" required>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit">Add Analytics Field</button>
+    </form>
+  
+    <ul *ngIf="analyticsFields.length > 0">
+      <li *ngFor="let field of analyticsFields" class="list-item">
+        <div *ngIf="editingAnalyticsFieldId !== field.id; else editField">
+          <span>{{ field.name }}</span>
+          <span>{{ field.description }}</span>
+          <button mat-raised-button color="primary" style="margin-left: 60%;" (click)="editAnalyticsField(field)">Edit</button>
+          <button mat-raised-button color="warn" (click)="deleteAnalyticsField(field.id)">Delete</button>
+        </div>
+        <ng-template #editField>
+          <mat-form-field appearance="fill">
+            <input matInput type="text" [(ngModel)]="field.name" required>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <input matInput type="text" [(ngModel)]="field.description" required>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="saveAnalyticsField(field)">Save</button>
+          <button mat-raised-button (click)="editingAnalyticsFieldId = null">Cancel</button>
+        </ng-template>
+      </li>
+    </ul>
+</div>

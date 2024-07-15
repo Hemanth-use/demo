@@ -1,0 +1,15 @@
+
+.signup-container {
+    max-width: 400px;
+    margin: auto;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-form-field {
+    width: 100%;
+    margin-bottom: 16px;
+}

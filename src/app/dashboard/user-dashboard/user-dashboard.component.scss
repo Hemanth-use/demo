@@ -1,0 +1,129 @@
+/* Body */
+body {
+  font-family: Arial, sans-serif;
+  color: #333; /* Adjust for readability */
+  margin: 0; /* Remove default margin for better control */
+  padding: 0; /* Remove default padding for better control */
+}
+
+/* Flexbox Helper Class (optional, but useful for creating flexible layouts) */
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+/* Header */
+header {
+  background-color: #fff; /* Light background */
+  padding: 20px; /* Adjust padding as needed */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.logo img {
+  width: 100px; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.map {
+  margin-left: 20px;
+}
+
+.input {
+  flex-grow: 1; /* Flexible width for search bar */
+  margin: 0 20px;
+}
+
+.input input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px; /* Adjust font size for readability */
+}
+
+.right .sign {
+  margin-left: 20px;
+}
+
+.right .cart {
+  margin-left: 20px;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px; /* Adjust font size for readability */
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41; /* Adjust for brand color */
+}
+
+/* Carousel Container */
+.carousel-container {
+  margin: 20px 0;
+  z-index: 1;
+}
+
+/* Products Section */
+.products-section {
+  padding: 20px;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Consider spacing for responsiveness */
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px;
+  width: calc(33.333% - 20px); /* Adjust width for responsiveness */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* Light background for better readability */
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+
+.product-info {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+
+.footer {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f1f1f1;
+}
